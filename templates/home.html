@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block title %}Inicio{% endblock %}
+
+{% block content %}
+    <div class="text-center">
+        <h2 class="mt-4">Bienvenido a App Segura</h2>
+        <p class="lead mt-3">Esta es tu aplicación para poner a prueba a tus estudiantes.</p>
+        <div class="mt-4">
+            <a href="{{ url_for('login') }}" class="btn btn-primary btn-lg me-2">Iniciar Sesión</a>
+            <a href="{{ url_for('register') }}" class="btn btn-success btn-lg">Registrarse</a>
+        </div>
+    </div>
+{% endblock %}

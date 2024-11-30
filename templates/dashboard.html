@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block title %}Dashboard{% endblock %}
+
+{% block content %}
+    <h2>Bienvenidx al Dashboard</h2>
+    <p>Hola, {{ username }}!</p>
+    <p>Tu última sesión fue: 
+        {% if last_login %}
+            {{ last_login.strftime('%d/%m/%Y %H:%M:%S') }}
+        {% else %}
+            Esta es tu primera vez iniciando sesión.
+        {% endif %}
+    </p>
+    <p>No hay más funcionalidades profe sorry. 😊</p>
+{% endblock %}

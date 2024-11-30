@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block title %}Registrarse{% endblock %}
+
+{% block content %}
+    <h2 class="text-center">Crear una Cuenta</h2>
+    <form method="POST" class="mt-4">
+        <div class="mb-3">
+            <label for="username" class="form-label">Nombre de Usuario:</label>
+            <input type="text" id="username" name="username" class="form-control" placeholder="Elige un nombre de usuario" required>
+        </div>
+        <div class="mb-3">
+            <label for="password" class="form-label">Contraseña:</label>
+            <input type="password" id="password" name="password" class="form-control" placeholder="Elige una contraseña segura" required>
+        </div>
+        <button type="submit" class="btn btn-primary w-100">Registrarse</button>
+    </form>
+    <p class="text-center mt-3">¿Ya tienes una cuenta? <a href="{{ url_for('login') }}">Inicia sesión aquí</a>.</p>
+{% endblock %}
