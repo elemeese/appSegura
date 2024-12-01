@@ -13,6 +13,10 @@
             <label for="password" class="form-label">Contraseña:</label>
             <input type="password" id="password" name="password" class="form-control" placeholder="Elige una contraseña segura" required>
         </div>
+        <div class="mb-3">
+            <label for="confirm_password" class="form-label">Confirmar Contraseña:</label>
+            <input type="password" id="confirm_password" name="confirm_password" class="form-control" placeholder="Confirma tu contraseña" required>
+        </div>
         <button type="submit" class="btn btn-primary w-100">Registrarse</button>
     </form>
     <p class="text-center mt-3">¿Ya tienes una cuenta? <a href="{{ url_for('login') }}">Inicia sesión aquí</a>.</p>

@@ -24,11 +24,22 @@ def login():
 @app.route("/register", methods=["GET", "POST"])
 def register():
     if request.method == "POST":
-        hashed_password = User.hash_password(request.form['password'])
-        user = User(username=request.form['username'], password=hashed_password)
+        username = request.form['username']
+        password = request.form['password']
+        confirm_password = request.form['confirm_password']
+
+        # Validar que las contraseñas coincidan
+        if password != confirm_password:
+            flash("Las contraseñas no coinciden. Por favor, inténtalo de nuevo.", "danger")
+            return redirect(url_for('register'))
+
+        # Crear el nuevo usuario
+        hashed_password = bcrypt.generate_password_hash(password).decode('utf-8')
+        user = User(username=username, password=hashed_password)
         db.session.add(user)
         db.session.commit()
-        flash("Cuenta creada con éxito.", "success")
+
+        flash("Cuenta creada con éxito. Ahora puedes iniciar sesión.", "success")
         return redirect(url_for('login'))
     return render_template("register.html")
 
